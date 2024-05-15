@@ -12,3 +12,8 @@ class AddressForm(ModelForm):
     class Meta:
         model = Address
         fields = '__all__'
+        error_messages = {
+            "username": {
+                'required':"Please enter your username"
+            }
+        }
