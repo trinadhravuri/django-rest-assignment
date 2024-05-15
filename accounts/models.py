@@ -18,7 +18,7 @@ class Account(models.Model):
         
         
 class Address(models.Model):
-    address_user = models.ForeignKey(Account, related_name='account')
+    address_user = models.ForeignKey(Account, related_name='account', on_delete=models.CASCADE)
     user = models.OneToOneField(Account, on_delete=models.CASCADE)
     door_no = models.CharField(max_length=255)
     address_line1 = models.CharField(max_length=255)
