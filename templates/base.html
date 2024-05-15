@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static '../static/CSS/base.css' %}">
-    <title>Assignment Django Rest Framework</title>
+    <title>Assignment{% block title %} {% endblock title %}</title>
 </head>
 <body>
     <header>
@@ -14,6 +14,9 @@
             <button><a href="">API View</a></button>
         </nav>
     </header>
+    <br>
+    {% block content %}
+    {% endblock content %}
     <script src="{% static '../static/JS/base.js' %}"></script>
 </body>
 </html>
