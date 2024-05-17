@@ -5,6 +5,12 @@
 
 {% block content %}
 <div>
+    {% if messages %}
+    <h2>{{messages.message}}</h2>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+    {% endif %}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

@@ -1,5 +1,7 @@
 from django.forms import ModelForm
 from .models import Account, Address
+from django import forms
+from django.forms import widgets
 
 
 class AccountForm(ModelForm):
@@ -7,6 +9,13 @@ class AccountForm(ModelForm):
         model = Account
         fields = '__all__'
 
+        widgets = {
+            'password':forms.PasswordInput(),
+            'confirm_password':forms.PasswordInput(),
+        }
+        
+        
+            
 
 class AddressForm(ModelForm):
     class Meta:

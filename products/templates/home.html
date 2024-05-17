@@ -9,4 +9,35 @@
     <button><a href="{% url 'login' %}">Login</a></button>
 </div>
 <h1>HOME</h1>
+<div id="catogery">
+    {% for category in categories %}
+        <div>
+            <h2><a href="">{{category}}</a></h2>
+            <p>{{category.desc}}</p>
+        </div>
+    {% endfor%}
+    <div id="index">
+        {% for subcategory in subcategories %}
+        <div>
+            <h3><a href="">{{subcategory}}</a></h3>
+            <p>{{subcategory.sub_desc}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        <button><a href="{% url 'products_list'%}">search</a></h2></button>
+    </div>
+    <div >
+        {% for product in products %}
+        <div style="border:1px solid black; width:250px; padding:2px; margin: 5px">
+            <h4><a href="">{{product}}</a></h4>
+            <p>{{product.description}}</p>
+            <h5>&#8377; {{product.price}}</h5>
+            <button>Buy</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% block cat %}
+{% endblock cat %}
 {% endblock content %}

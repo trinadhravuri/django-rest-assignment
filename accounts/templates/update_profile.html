@@ -1,0 +1,19 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+
+{% block title %}-{{username}} Update profile {% endblock title %}
+
+{% block update %}
+<div>
+    <h2>Update eprofile</h2>
+    <form action="{% url 'update-user' %}" method="post">
+        {% csrf_token %}
+        <!-- {{form.as_p}} -->
+        <input type="text" name="username" placeholder="username">
+        <input type="text" name="first_name" placeholder="first_name">
+        <input type="text" name="last_name" placeholder="last_name">
+        <!-- <input type="text" name="emai" placeholder="username"> -->
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+{% endblock update %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}-products List {% endblock title %}
+
+
+
+{% block content %}
+<div>
+    <form action="" method="get">
+    <input type="search" name = "x" placeholder="Search by name">
+    <select name="category" id="">
+        <option value="">All categories</option>
+        {% for category in categories %}
+            <option value="{{category.name}}">{{category.name}}</option>
+        {% endfor %}
+    </select>
+    <select name="order_by" id="">
+        <option value="">Order By</option>
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+    </select>
+    <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for product in products %}
+        <li>{{product.name}} - {{product.price}}</li>
+        {% empty %}
+            <li>No Products Found</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
