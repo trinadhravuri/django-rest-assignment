@@ -1,0 +1,14 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+
+{% block title %}- order history {% endblock title %}
+
+{% block orderhistory %}
+    {% if orders %}
+        {% for order in orders %}
+        {{order}}
+        {% endfor %}
+    {% else %}
+    <h3>no Orders yet</h3>
+    {% endif %}
+{% endblock orderhistory %}

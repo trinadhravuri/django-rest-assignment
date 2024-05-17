@@ -49,6 +49,7 @@ def user_login(request):
             auth.login(request, user)
             return redirect('dashboard')
         else:
+            messages.error(request,"Invalid username or password")
             return render(request, 'login.html')
     else:
         return render(request, 'login.html')

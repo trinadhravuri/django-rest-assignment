@@ -1,0 +1,14 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block title %}- cart {% endblock title %}
+
+{% block cart %}
+<h1>This is view cart page</h1>
+{% if cart %}
+    {% for i in cart %}
+    {{cart}}
+    {% endfor %}
+{% else%}
+<h4>No cart Items Yet </h4>
+{% endif %}
+{% endblock cart %}

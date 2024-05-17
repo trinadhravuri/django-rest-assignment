@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from django.contrib.messages import constants as messages
-
+# from crispy_bootstrap5 import bootstrap5
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'rest_framework',
     # 'rest_authtoken',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASS':(
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -135,8 +143,15 @@ MEDIA_URL = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# CRISPY_ALLOWED_TEMPLATE_PACK = bootstrap5
+# CRISPY_TEMPLATE_PACK = bootstrap5
 # messages tag settings
 MESSAGE_TAG = {
     messages.ERROR:'danger',
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
