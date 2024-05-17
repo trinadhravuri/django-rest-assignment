@@ -5,8 +5,12 @@
 
 {% block content %}
 <div>
+    {% if user.isauthenticated %}
+    {{username}}
+    {% else %}
     <button><a href="{% url 'register' %}">Register</a></button>
     <button><a href="{% url 'login' %}">Login</a></button>
+    {% endif %}
 </div>
 <h1>HOME</h1>
 <div id="catogery">
@@ -30,7 +34,7 @@
     <div >
         {% for product in products %}
         <div style="border:1px solid black; width:250px; padding:2px; margin: 5px">
-            <h4><a href="">{{product}}</a></h4>
+            <h4><a href="{% url 'product-detail' product.id %}">{{product}}</a></h4>
             <p>{{product.description}}</p>
             <h5>&#8377; {{product.price}}</h5>
             <button>Buy</button>
@@ -40,4 +44,8 @@
 </div>
 {% block cat %}
 {% endblock cat %}
+{% block productdetail %}
+{% endblock productdetail %}
+{% block dashboard %}
+{% endblock dashboard %}
 {% endblock content %}

@@ -10,8 +10,8 @@ def view_cart(request):
     return render(request, 'view_cart.html', {'cart': cart})
 
 @login_required
-def add_to_cart(request, product_id):
-    product = SubCategoryProducts.objects.get(pk=product_id)
+def add_to_cart(request, id):
+    product = SubCategoryProducts.objects.get(id=id)
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
     if not created:

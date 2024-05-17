@@ -18,6 +18,12 @@ def home(request):
     }
     return render(request,'home.html', context)
 
+def product_detail(request,id):
+    product = SubCategoryProducts.objects.get(id=id)
+    context = {
+        'product': product
+    }
+    return render(request,'product_detail.html', context)
 
 def products_list(request):
     

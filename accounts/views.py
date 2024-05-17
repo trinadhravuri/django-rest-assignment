@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login
 from .forms import AccountForm, AddressForm
 from django.contrib import auth, messages
+from products.models import Category, SubCategory, SubCategoryProducts
 
 # Create your views here.
 
@@ -56,7 +57,8 @@ def user_login(request):
     
 def user_dashboard(request):
     username = request.user.username
-    return render(request, 'dashboard.html',{'username':username})
+    products = SubCategoryProducts.objects.all()
+    return render(request, 'dashboard.html',{'username':username,'products':products})
 
 def user_logout(request):
     logout(request)
